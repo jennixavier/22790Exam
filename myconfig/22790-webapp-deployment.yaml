@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 16751-webapp-deployment
-  namespace: 16751-proj
+  name: 22790-webapp-deployment
+  namespace: 22790-project
 spec:
   replicas: 2
   selector:
@@ -14,15 +14,15 @@ spec:
         app: webapp
     spec:
       containers:
-      - name: 16751-webapp-deployment
-        image: davidhtcmail/todaycluster:v1  # Replace with your actual backend image name
+      - name: 22790-webapp-deployment
+        image: jennixavier/helloworld:v1  # Replace with your actual backend image name
         ports:
         - containerPort: 8001
         env:
             - name: APP_KEY 
               valueFrom:
                 secretKeyRef:
-                  name: webapp-secret-16751 - secret anem
+                  name: webapp-secret-22790 - secret anem
                   key: APP_KEY  - under data -- value
             - name: WELCOME_MSG
               valueFrom:
