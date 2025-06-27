@@ -23,7 +23,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: webapp-secret-22790
-                  key: APP_KEY: MySecretKey123
+                  key: APP_KEY  - under data -- value
             - name: WELCOME_MSG
               valueFrom:
                 configMapKeyRef:
