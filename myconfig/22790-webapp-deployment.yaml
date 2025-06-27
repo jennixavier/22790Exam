@@ -14,7 +14,7 @@ spec:
         app: webapp
     spec:
       containers:
-      - name: 22790myapp
+      - name: webapp
         image: jennixavier/helloworld:v1  # Replace with your actual backend image name
         ports:
             - containerPort: 80
