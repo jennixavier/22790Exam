@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 22790-webapp-deployment
+  name: 22790myapp
   namespace: 22790-project
 spec:
   replicas: 2
@@ -14,7 +14,7 @@ spec:
         app: webapp
     spec:
       containers:
-      - name: 22790-webapp-deployment
+      - name: 22790myapp
         image: jennixavier/helloworld:v1  # Replace with your actual backend image name
         ports:
         - containerPort: 8001
