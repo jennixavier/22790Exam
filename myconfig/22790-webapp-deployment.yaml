@@ -17,16 +17,23 @@ spec:
       - name: 22790myapp
         image: jennixavier/helloworld:v1  # Replace with your actual backend image name
         ports:
-        - containerPort: 8001
-        env:
-            - name: APP_KEY 
-              valueFrom:
-                secretKeyRef:
-                  name: webapp-secret-22790
-                  key: APP_KEY  - under data -- value
-            - name: WELCOME_MSG
-              valueFrom:
-                configMapKeyRef:
-                  name: webapp-config-22790
-                  key: WELCOME_MSG
-
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: 22790-webapp-config
+            - secretRef:
+                name: 22790-webapp-secret
+          volumeMounts:
+            - name: app-storage
+              mountPath: /usr/share/nginx/html  # Example path
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      volumes:
+        - name: app-storage
+          persistentVolumeClaim:
+            claimName: webapp-pvc
