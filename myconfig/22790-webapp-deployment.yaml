@@ -22,11 +22,11 @@ spec:
             - name: APP_KEY 
               valueFrom:
                 secretKeyRef:
-                  name: webapp-secret-22790 - secret anem
+                  name: webapp-secret-22790
                   key: APP_KEY  - under data -- value
             - name: WELCOME_MSG
               valueFrom:
                 configMapKeyRef:
-                  name: webapp-config-16751
+                  name: webapp-config-22790
                   key: WELCOME_MSG
 
